@@ -11,7 +11,7 @@ from mivolo.structures import AGE_GENDER_TYPE, PersonAndFaceResult
 
 class Predictor:
     def __init__(self, config, verbose: bool = False):
-        self.detector = Detector(config.detector_weights, config.device, verbose=verbose)
+        self.detector = Detector(config.detector_weights, config.device, verbose=verbose, conf_thresh=config.detector_conf_thresh)
         self.age_gender_model = MiVOLO(
             config.checkpoint,
             config.device,
